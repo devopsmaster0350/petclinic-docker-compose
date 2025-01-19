@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: .
+    ports:
+    - "8080:8080"   
+    depends_on:   
+    - postgres 
+  
+  postgres:
+    image: postgres:17.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=petclinic
+      - POSTGRES_USER=petclinic
+      - POSTGRES_DB=petclinic
